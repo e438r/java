@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container" style="min-height: 400px;">
+    <div class="loginP">
+        <h1 class="center-block" style="text-align: center">征信数据平台</h1>
+        <div class="center-block" style="text-align: center"><button class="btn btn-primary" id="qsso-login" style="text-align: center">qsso登录</button></div>
+    </div>
+</div>
+<script src="https://qsso.corp.qunar.com/lib/qsso-auth.js"></script>
+<script>
+    // 调用QSSO.attach进行登录参数的设置，如：设置绑定登录事件的HTML元素，接收token的登录接口URI。
+    QSSO.attach('qsso-login','/main/index.html');
+    // attach函数会将HTMLid为qsso-login的元素onclick时自动去qsso登录，当用户用户点击上面的button，
+    // 会跳到qsso登录页面,用户在qsso登录后将会把token值post到http://xxx.qunar.com/login.php上。
+</script>
+<!-- 结束 -->
+</body>
+</html>

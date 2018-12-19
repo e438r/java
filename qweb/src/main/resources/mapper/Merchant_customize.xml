@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.Merchant_customizeDao">
+
+    <insert id="insert" parameterType="com.example.dto.Merchant_customize">
+        INSERT into merchant_customize
+(merchant_code,tpp_code,character_code,product_code,scene,create_time,update_time)
+VALUES
+('WDMART','Qunar','Q001002','M','O',NOW(),NOW()),
+('WDMART','Qunar','Q001004','M','O',NOW(),NOW()),
+('WDMART','Qunar','Q001021','M','O',NOW(),NOW()),
+('WDMART','Qunar','Q001013','M','O',NOW(),NOW()),
+('WDMART','Qunar','Q006014','M','O',NOW(),NOW());
+    </insert>
+<delete id="delete">
+    delete from merchant_customize where merchant_code='WDMART';
+</delete>
+</mapper>

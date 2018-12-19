@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width =device-width, initial-scale=1, maximum-scale=1"/>
+    <title></title>
+    <meta charset="utf-8"/>
+    <!--layui的css-->
+    <script type="text/javascript" src="/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/suiNavbar/sui.nav.min.js"></script>
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/common/common.js"></script>
+    <script type="text/javascript" src="/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/layui/layui-xtree.js"></script>
+    <script type="text/javascript" src="/menu/dist/typeit.min.js"></script>
+    <script type="text/javascript" src="/menu/src/scripts.min.js"></script>
+    <script type="text/javascript" src="/numberCount/count.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap-treeview.js"></script>
+    <script type="text/javascript" src="/ztree/privilege_role.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/suiNavbar/sui.nav.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="/menu/dist/typeit.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/menu/src/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-treeview.css">
+
+    <style type="text/css">
+        [title] {
+            color: red;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<h1 title>文件最多传10条数据，超过10条不会处理，请分批导出！</h1><br/>
+<form class="layui-form layui-form-pane" method="post" id="formSubmit" action="../credit/uploadBatchUser"
+      enctype="multipart/form-data"
+      style="width: 600px; height: 100px; float: left;margin-left: 15px; margin-top: 15px">
+    <div class="layui-form-item">
+        <label class="layui-form-label">数据文件</label>
+        <div class="layui-input-block">
+            <input id="userLimitUploadFile" type="file" name="userLimitUploadFile" placeholder="选择文件"
+                   autocomplete="off" class="layui-input">
+            |分割的行记录 userId|身份证号|加密卡号<br/>
+            12345|123131asdfa12313|asdfasdfasdf<br/>
+            ...<br/>
+            1234233|123131asdfa123adf13|asfasfasdfas<br/>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">指标列表</label>
+        <div class="layui-input-block">
+            <textarea id="qcodes" name="qcodes" rows="5" cols="100"></textarea>
+            示例：Q001007,Q001001
+        </div>
+    </div>
+    <input type="button" id="uploadBatchUserLimitDIVbtnQcredit" class="layui-btn  layui-btn-lg" value="导 出（征信系统）"/>
+</form>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $("#uploadBatchUserLimitDIVbtnQcredit").bind("click", function () {
+        $('#uploadBatchUserLimitDIVbtnQcredit').attr("disabled", true);
+        var formData = new FormData($("#formSubmit")[0]);
+        $.ajax({
+            url: '../credit/uploadBatchUserQcredit.do',
+            type: 'POST',
+            data: formData,
+            async: true,
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returnData) {
+                alert(returnData.msg);
+                $('#uploadBatchUserLimitDIVbtnQcredit').attr("disabled", false);
+            },
+            error: function (returndata) {
+                if (returndata.status == "401") {
+                    alert("没有权限！");
+                    return;
+                } else {
+                    alert(returndata.msg);
+                    $('#uploadBatchUserLimitDIVbtnQcredit').attr("disabled", false);
+                }
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,369 @@
+<!-- 不要删掉这行!!! <![CDATA[ -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>征信hulk!</title>
+
+    <script type="text/javascript" src="/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/suiNavbar/sui.nav.min.js"></script>
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/common/common.js"></script>
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/menu/dist/typeit.min.js"></script>
+    <script type="text/javascript" src="/menu/src/scripts.min.js"></script>
+    <script type="text/javascript" src="/numberCount/count.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/suiNavbar/sui.nav.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="/menu/dist/typeit.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/menu/src/style.css"/>
+
+    <style type="text/css">
+
+        /* 总页面布局 */
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: "微软雅黑", Arial, "华文黑体", "黑体", sans-serif;
+        }
+
+        #topBar {
+            background-color: #393D49;
+        }
+
+        #topBar .topButton {
+            background-color: #393D49;
+        }
+
+        #topBar .topButton:hover {
+            background-color: #494e5d;
+            transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s; /* Firefox 4 */
+            -webkit-transition-duration: 0.3s; /* Safari 和 Chrome */
+            -o-transition-duration: 0.3s; /* Opera */
+        }
+
+        #topBar .topButton a {
+            color: #FFFFFF;
+        }
+
+        #middle {
+            position: fixed;
+            float: left;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        #middle #middle-left {
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 200px;
+            background-color: #2F4056;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        #middle #middle-left .leftButton{
+            color: #FFFFFF;
+        }
+
+        #middle #middle-left .leftButton {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #middle #middle-left .leftButton:hover {
+            background-color: #3a4e69;
+            transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s; /* Firefox 4 */
+            -webkit-transition-duration: 0.3s; /* Safari 和 Chrome */
+            -o-transition-duration: 0.3s; /* Opera */
+        }
+
+        #middle #middle-left #middleLeftInputs {
+            padding-left: 10px;
+            padding-bottom: 100px;
+            width: 200px;
+        }
+
+        #middle #middle-left #middleLeftInputs #originInput {
+            border: none;
+            width: 180px;
+            height: 30px;
+            font-size: 15px;
+            margin-bottom: 10px;
+            background-color: #eee;
+        }
+
+        #middle #middle-left #middleLeftInputs #originInputValue {
+            border: none;
+            width: 180px;
+            height: 30px;
+            font-size: 15px;
+            margin-bottom: 10px;
+            background-color: #eee;
+        }
+
+        #middle #middle-left #middleLeftInputs .divButton {
+            position: relative;
+            float: left;
+            width: 60px;
+            background-color: #01AAED;
+            color: #FFFFFF;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 25px;
+        }
+
+        #middle #middle-left #middleLeftInputs .divButton:hover {
+            cursor: pointer;
+            background-color: #1a8ce0;
+        }
+
+        #middle #middle-right {
+            position: relative;
+            float: left;
+            height: 100%;
+            flex: 1;
+            border-left: solid 2px #eee;
+        }
+
+        #tempMainPage {
+            color: #b0b0b0;
+            margin-top: 300px;
+            font-size: 25px;
+            font-family: "微软雅黑", Arial, "华文黑体", "黑体", sans-serif;
+        }
+
+        .ti-text-container {
+            font-size: 30px;
+        }
+
+        a {
+            font-weight: normal;
+        }
+
+        .layui-layer-title {
+            text-align: left;
+        }
+
+        .layui-layer-input {
+            text-align: left;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- 顶部菜单 -->
+<div id="top">
+
+    <div id="topBar" class="sui-nav horizontal" style="height: 40px; border: none">
+        <div class="sui-nav-wrapper nav-line">
+            <!--<ul>-->
+            <!--<li>征信辅助系统</li>-->
+            <!--</ul>-->
+
+            <ul class="pull-right">
+                <li th:if="${authMap.hbaseAddBtn == '1'}" class="topButton" onclick="insertHbaseCharacterPage()"><a>新增征信数据</a>
+                </li>
+                <li class="topButton" onclick="changeStyle()" id="changeStyleButton"><a>关灯</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- 中部 -->
+<div id="middle">
+
+    <!-- 中部left菜单 -->
+    <div id="middle-left">
+
+        <!-- 左边栏菜单 -->
+        <!-- 左侧菜单栏由数据库配置，插入的authUrl为/main开头则自动插入左侧栏，所以
+             请注意url的命名。暂不支持二级菜单的自动配置，需要在该页面进行js编码。-->
+        <div id="middleLeftBar" class="sui-nav">
+            <div class="sui-nav-wrapper nav-line"></div>
+            <ul>
+                <li class="leftButton" th:each="authData:${authLeftList}" th:name="${authData.authControl}" th:text="${authData.authName}" onclick="send(this)"></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- 中部right内容 -->
+    <div id="middle-right">
+
+        <!-- 右侧默认首页 -->
+        <div id="tempMainPage">
+            <p class="advertiseMain"></p>
+            <p class="advertiseDetail"></p>
+        </div>
+
+
+        <!-- 右侧动态内容 -->
+        <iframe id="iframe" src="" frameborder="0" style="width: 100%; height: 100%; margin: 0"></iframe>
+    </div>
+
+</div>
+</div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    // $("[name='tableQuery']").css("display","block");
+    /* 界面风格 default默认 dark黑夜 */
+    var MAIN_STYLE = 'default';
+    $(document).ready(function(){
+        var tools=$("[name='/main/tools']");
+        var flag = 1;
+        var tableQuery=$("[name='/main/rowKey']");
+        tools.attr("name","javascript:void(0)");
+        tableQuery.css("display","none");
+        tools.click(function(){
+            if (flag == 1) {
+                tableQuery.css("display","block");
+                flag = 0;
+            } else {
+                tableQuery.css("display","none");
+                flag = 1;
+            }
+        });
+    });
+
+    function send(btn){
+        var href = $(btn).attr("name");
+        $("#iframe")[0].src=href;
+    }
+
+
+    $(function () {
+        /* 顶部导航栏 */
+        $('#topBar').SuiNav({
+            toggleName: '.MenuToggle', // 控制菜单开关类
+            direction: 'left', // 菜单切换方向
+            trigger: 'click', // 展开方式，单击展示下层或是悬浮展示
+            openingSpeed: 100, // 打开菜单动画时间
+            closingSpeed: 100, // 关闭菜单动画时间
+            closingCascade: true, // 级联关闭所有菜单，仅对垂直导航菜单有效
+            destroy: true // 切换菜单时是否释放控件占用资源
+        });
+        /* 左部导航栏 */
+        $('#middleLeftBar').SuiNav({
+            toggleName: '.MenuToggle', // 控制菜单开关类
+            direction: 'left', // 菜单切换方向
+            trigger: 'click', // 展开方式，单击展示下层或是悬浮展示
+            openingSpeed: 100, // 打开菜单动画时间
+            closingSpeed: 100, // 关闭菜单动画时间
+            closingCascade: true, // 级联关闭所有菜单，仅对垂直导航菜单有效
+            destroy: true // 切换菜单时是否释放控件占用资源
+        });
+        /* 天气组件 暂时隐藏掉 */
+        /*runWeather();*/
+        /* 介绍文案 */
+        runIntroduction();
+        /* 访问次数 */
+        //runAccessCount();
+
+    });
+
+    /* 左部按钮触发右部刷新 */
+    $('.leftButton').click(function () {
+        $('#tempMainPage').hide();
+        var href = $($(this).children()[0]).attr('href');
+        $('#iframe').attr("src", href).ready();
+    });
+
+    /* 新增征信数据 */
+    function insertHbaseCharacterPage() {
+        console.log("ssss");
+        var rowKeyInput = $("#iframe").contents().find("#rowKey")[0];
+        if (rowKeyInput == undefined) {
+            openLayerDialog('/creditData/insertCreditCharacterPage', '新增征信数据', '890px', '328px');
+        } else {
+            openLayerDialog('/creditData/insertCreditCharacterPage?rowKey=' + $(rowKeyInput).val(), '新增征信数据', '890px', '328px');
+        }
+    }
+
+    /* 改变界面风格 */
+    function changeStyle() {
+        if (MAIN_STYLE != 'dark') {
+            MAIN_STYLE = 'dark';
+            /* 改变本页面元素的风格 */
+            $('#middle-left').css('background-color', '#202038');
+            $('#middle-right').css('border-left', 'solid 2px #0e0e18');
+            $('#middle-right').css('background-color', '#1A1B2F');
+            $('#tempMainPage').css('color', '#8584c6');
+            $('#iframe').css('background-color', '#1A1B2F');
+            /* 改变子页面元素的风格 */
+            $("#iframe")[0].contentWindow.buildStyle(MAIN_STYLE);
+        } else {
+            layer.tips('暂时没有开灯功能，刷新页面即可重新开灯', $('#changeStyleButton'), {tips: [3, '#009688'], tipsMore: true});
+        }
+    }
+
+    /* 天气组件，不要随便改动参数 */
+    function runWeather() {
+        (function (T, h, i, n, k, P, a, g, e) {
+            g = function () {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function () {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.seniverse.com/widget/chameleon.js"))
+        tpwidget("init", {
+            "flavor": "bubble",
+            "location": "WX4FBXXFKE4F",
+            "geolocation": "disabled",
+            "position": "top-right",
+            "margin": "10px 10px",
+            "language": "auto",
+            "unit": "c",
+            "theme": "chameleon",
+            "uid": "U3FB530E9C",
+            "hash": "3833f4a8d5438e70a81e1f2179e280bc"
+        });
+        tpwidget("show");
+    }
+
+    /* 介绍文案 */
+    function runIntroduction() {
+        $('.advertiseMain').typeIt({
+            whatToType: [
+                '征信指标'
+            ],
+            typeSpeed: 100,
+            breakLines: false
+        });
+    }
+
+
+</script>
+
+
+<!-- 也不要删掉这行!!! ]]> -->

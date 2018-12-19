@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8"/>
+    <title>清除黑名单数据</title>
+
+    <script type="text/javascript" src="/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/common/common.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/jqwidgets/styles/jqx.base.css"/>
+    <link rel="stylesheet" type="text/css" href="/jqwidgets/styles/jqx.darkblue.css"/>
+    <link rel="stylesheet" type="text/css" href="/layer/skin/default/layer.css"/>
+
+    <style type="text/css">
+
+        body {
+            position: relative;
+            float: left;
+            font-family: "微软雅黑", Arial, "华文黑体", "黑体", sans-serif;
+        }
+
+        .leftInput {
+            position: relative;
+            float: left;
+            width: 650px;
+        }
+
+        .leftInput input {
+            position: relative;
+            float: left;
+            height: 32px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .rightButton {
+            position: relative;
+            float: right;
+            width: 200px;
+        }
+
+        /* 不同宽度的input */
+        .input-middle {
+            width: 400px;
+        }
+
+        .input-small {
+            width: 200px;
+        }
+
+        .input-large {
+            width: 600px;
+        }
+
+        .textarea-middle {
+            width: 626px;
+            height: 176px;
+        }
+
+        .rightButton .divButton {
+            background-color: #01AAED;
+            color: #FFFFFF;
+            width: 140px;
+            padding-top: 8px;
+            padding-bottom: 9px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rightButton .divButton:hover {
+            cursor: pointer;
+            background-color: #1E9FFF;
+        }
+
+        .rightButton .buttonDark {
+            background-color: #346fed;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="leftInput">
+    <input type="text" id="rowKey" name="rowKey" class="input-small checkNotNull" placeholder="rowKey(不可为空)" />
+    <input type="text" id="merchantCode" name="merchantCode" class="input-small checkNotNull" placeholder="商户编码(不可为空)" />
+</div>
+
+<div class="rightButton" style="float:bottom" >
+    <div class="divButton" id="QCREDIT_DATA" characterIndex="userId" style="float:right">解除黑名单</div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+    /* 不要删掉这行!!! <![CDATA[ */
+
+    $(document).ready(function () {
+        /* 构造界面样式 */
+        buildStyle(parent.MAIN_STYLE);
+    });
+
+    /* 构造界面样式 */
+    function buildStyle(styleName) {
+        if ('dark' == styleName) {
+            $('body').css('background-color', '#1A1B2F');
+            $('input').css('color', '#8584c6');
+            $('input').css('background-color', '#2f2f53');
+            $('input').css('border', 'none');
+            $('input').css('padding-left', '5px');
+            $('.textarea-middle').css('width', '631px');
+            $('.textarea-middle').css('color', '#8584c6');
+            $('.textarea-middle').css('background-color', '#2f2f53');
+            $('.textarea-middle').css('border', 'none');
+            $('.divButton').css('background-color', '#A157E2');
+            $('.divButton').css('padding-top', '6px');
+            $('.divButton').css('padding-bottom', '7px');
+        }
+    }
+
+    /* 修改黑名单指标 */
+    $('.divButton').click(function () {
+        if (!checkParams()) {
+            return;
+        }
+        layer.confirm('确认重置黑名单指标 ？', {
+            title: '确认',
+            btn: [' 确认 ', ' 再想想 '],
+            icon: 3,
+            skin: 'layui-layer-lan'
+        }, function (index) {
+            layer.close(index);
+            $.ajax({
+                url: '/creditData/resetBlackListCharacter',
+                data: {
+                    rowKey: $('#rowKey').val(),
+                    merchantCode: $('#merchantCode').val()
+                },
+                async: false,
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    layer.msg(data.data);
+                },
+                error: function (data) {
+                    var message = JSON.parse(data.responseText).message;
+                    layer.msg(message, function () {});
+                }
+            });
+        });
+
+    });
+
+    /* 也不要删掉这行!!! ]]>*/
+</script>
+</html>
