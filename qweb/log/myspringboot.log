@@ -47,3 +47,331 @@
 2018-12-21 12:04:27.075  INFO 1948 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
 2018-12-21 12:04:27.076  INFO 1948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
 2018-12-21 12:04:27.108  INFO 1948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2018-12-21 16:12:59.804  INFO 6064 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on QF-zhaoxueqian with PID 6064 (E:\e438r\qweb\target\classes started by xueqian.zhao in E:\e438r\qweb)
+2018-12-21 16:12:59.810  INFO 6064 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-21 16:12:59.954  INFO 6064 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5656be13: startup date [Fri Dec 21 16:12:59 CST 2018]; root of context hierarchy
+2018-12-21 16:13:01.624  INFO 6064 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$8179551a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 16:13:02.564  INFO 6064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-21 16:13:02.601  INFO 6064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-21 16:13:02.601  INFO 6064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-12-21 16:13:02.613  INFO 6064 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2018-12-21 16:13:02.613  INFO 6064 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-12-21 16:13:02.613  INFO 6064 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-12-21 16:13:03.711  INFO 6064 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2018-12-21 16:13:03.854  INFO 6064 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-21 16:13:03.855  INFO 6064 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3901 ms
+2018-12-21 16:13:03.960  INFO 6064 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-21 16:13:03.966  INFO 6064 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-21 16:13:03.966  INFO 6064 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-21 16:13:03.967  INFO 6064 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-21 16:13:03.967  INFO 6064 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-21 16:13:05.243  INFO 6064 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:13:05.478  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5656be13: startup date [Fri Dec 21 16:12:59 CST 2018]; root of context hierarchy
+2018-12-21 16:13:05.543  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/add]}" onto public java.lang.String com.example.controller.ArticleController.add(com.example.dto.Article)
+2018-12-21 16:13:05.544  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/update]}" onto public java.lang.String com.example.controller.ArticleController.update(com.example.dto.Article)
+2018-12-21 16:13:05.545  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/del]}" onto public java.lang.String com.example.controller.ArticleController.delete(java.lang.Integer)
+2018-12-21 16:13:05.545  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/index]}" onto public java.lang.String com.example.controller.ArticleController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:13:05.545  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/get]}" onto public java.lang.String com.example.controller.ArticleController.article(java.lang.Integer)
+2018-12-21 16:13:05.546  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/list]}" onto public java.lang.String com.example.controller.ArticleController.articleList(com.example.dto.Article)
+2018-12-21 16:13:05.548  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/add]}" onto public java.lang.String com.example.controller.CategoryController.add(com.example.dto.Category)
+2018-12-21 16:13:05.548  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/update]}" onto public java.lang.String com.example.controller.CategoryController.update(com.example.dto.Category)
+2018-12-21 16:13:05.549  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/del]}" onto public java.lang.String com.example.controller.CategoryController.delete(java.lang.Integer)
+2018-12-21 16:13:05.549  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/index]}" onto public java.lang.String com.example.controller.CategoryController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:13:05.549  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/get]}" onto public java.lang.String com.example.controller.CategoryController.category(java.lang.Integer)
+2018-12-21 16:13:05.549  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/list]}" onto public java.lang.String com.example.controller.CategoryController.categoryList(com.example.dto.Category)
+2018-12-21 16:13:05.554  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/add]}" onto public java.lang.String com.example.controller.ImageController.add(com.example.dto.ShowImage)
+2018-12-21 16:13:05.554  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/update]}" onto public java.lang.String com.example.controller.ImageController.update(com.example.dto.ShowImage)
+2018-12-21 16:13:05.555  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/del]}" onto public java.lang.String com.example.controller.ImageController.delete(java.lang.Integer)
+2018-12-21 16:13:05.555  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/get]}" onto public java.lang.String com.example.controller.ImageController.image(java.lang.Integer)
+2018-12-21 16:13:05.555  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/index]}" onto public java.lang.String com.example.controller.ImageController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:13:05.555  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/list]}" onto public java.lang.String com.example.controller.ImageController.imageList(com.example.dto.ShowImage)
+2018-12-21 16:13:05.556  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.example.controller.MainController.Index(org.springframework.ui.ModelMap,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:13:05.556  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addCookie]}" onto public void com.example.controller.MainController.addCookie(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:13:05.557  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editCookie]}" onto public void com.example.controller.MainController.editCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:13:05.557  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/delCookie]}" onto public void com.example.controller.MainController.delCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-12-21 16:13:05.558  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/add]}" onto public java.lang.String com.example.controller.SubscribeController.add(com.example.dto.Subscribe)
+2018-12-21 16:13:05.559  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/update]}" onto public java.lang.String com.example.controller.SubscribeController.update(com.example.dto.Subscribe)
+2018-12-21 16:13:05.559  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/del]}" onto public java.lang.String com.example.controller.SubscribeController.delete(java.lang.Integer)
+2018-12-21 16:13:05.559  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/index]}" onto public java.lang.String com.example.controller.SubscribeController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:13:05.560  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/list]}" onto public java.lang.String com.example.controller.SubscribeController.subscribeList(com.example.dto.Subscribe)
+2018-12-21 16:13:05.560  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/get]}" onto public java.lang.String com.example.controller.SubscribeController.subscribe(java.lang.Integer)
+2018-12-21 16:13:05.561  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add]}" onto public java.lang.String com.example.controller.UserController.add(com.example.dto.User)
+2018-12-21 16:13:05.562  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/update]}" onto public java.lang.String com.example.controller.UserController.update(com.example.dto.User)
+2018-12-21 16:13:05.562  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/del]}" onto public java.lang.String com.example.controller.UserController.delete(java.lang.Integer)
+2018-12-21 16:13:05.562  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get]}" onto public java.lang.String com.example.controller.UserController.user(java.lang.Integer)
+2018-12-21 16:13:05.563  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/list]}" onto public java.lang.String com.example.controller.UserController.userList(com.example.dto.User)
+2018-12-21 16:13:05.563  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/index]}" onto public java.lang.String com.example.controller.UserController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:13:05.566  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-21 16:13:05.566  INFO 6064 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:13:05.605  INFO 6064 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:13:05.606  INFO 6064 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:13:06.088  INFO 6064 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-12-21 16:13:06.324  INFO 6064 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-21 16:13:06.326  INFO 6064 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-21 16:13:06.333  INFO 6064 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-12-21 16:13:06.336  INFO 6064 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-21 16:13:06.372  INFO 6064 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-12-21 16:13:06.513  INFO 6064 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-21 16:13:06.610  INFO 6064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-21 16:13:06.614  INFO 6064 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 7.623 seconds (JVM running for 8.73)
+2018-12-21 16:13:30.648  INFO 6064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-21 16:13:30.648  INFO 6064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-21 16:13:30.669  INFO 6064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-12-21 16:13:31.135 ERROR 6064 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.example.controller.MainController.Index(MainController.java:29) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_172]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_172]
+
+2018-12-21 16:14:20.213  INFO 5040 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on QF-zhaoxueqian with PID 5040 (E:\e438r\qweb\target\classes started by xueqian.zhao in E:\e438r\qweb)
+2018-12-21 16:14:20.221  INFO 5040 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-21 16:14:20.315  INFO 5040 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@13330ac6: startup date [Fri Dec 21 16:14:20 CST 2018]; root of context hierarchy
+2018-12-21 16:14:21.640  INFO 5040 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$38069355] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 16:14:22.735  INFO 5040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-21 16:14:22.781  INFO 5040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-21 16:14:22.781  INFO 5040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-12-21 16:14:22.791  INFO 5040 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2018-12-21 16:14:22.791  INFO 5040 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-12-21 16:14:22.792  INFO 5040 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-12-21 16:14:23.848  INFO 5040 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2018-12-21 16:14:24.009  INFO 5040 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-21 16:14:24.010  INFO 5040 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3696 ms
+2018-12-21 16:14:24.110  INFO 5040 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-21 16:14:24.119  INFO 5040 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-21 16:14:24.120  INFO 5040 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-21 16:14:24.121  INFO 5040 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-21 16:14:24.121  INFO 5040 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-21 16:14:25.447  INFO 5040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:14:25.804  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@13330ac6: startup date [Fri Dec 21 16:14:20 CST 2018]; root of context hierarchy
+2018-12-21 16:14:25.896  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/add]}" onto public java.lang.String com.example.controller.ArticleController.add(com.example.dto.Article)
+2018-12-21 16:14:25.897  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/update]}" onto public java.lang.String com.example.controller.ArticleController.update(com.example.dto.Article)
+2018-12-21 16:14:25.897  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/del]}" onto public java.lang.String com.example.controller.ArticleController.delete(java.lang.Integer)
+2018-12-21 16:14:25.898  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/index]}" onto public java.lang.String com.example.controller.ArticleController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:14:25.898  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/get]}" onto public java.lang.String com.example.controller.ArticleController.article(java.lang.Integer)
+2018-12-21 16:14:25.899  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/list]}" onto public java.lang.String com.example.controller.ArticleController.articleList(com.example.dto.Article)
+2018-12-21 16:14:25.903  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/add]}" onto public java.lang.String com.example.controller.CategoryController.add(com.example.dto.Category)
+2018-12-21 16:14:25.904  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/update]}" onto public java.lang.String com.example.controller.CategoryController.update(com.example.dto.Category)
+2018-12-21 16:14:25.904  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/del]}" onto public java.lang.String com.example.controller.CategoryController.delete(java.lang.Integer)
+2018-12-21 16:14:25.905  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/index]}" onto public java.lang.String com.example.controller.CategoryController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:14:25.905  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/get]}" onto public java.lang.String com.example.controller.CategoryController.category(java.lang.Integer)
+2018-12-21 16:14:25.906  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/list]}" onto public java.lang.String com.example.controller.CategoryController.categoryList(com.example.dto.Category)
+2018-12-21 16:14:25.913  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/add]}" onto public java.lang.String com.example.controller.ImageController.add(com.example.dto.ShowImage)
+2018-12-21 16:14:25.913  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/update]}" onto public java.lang.String com.example.controller.ImageController.update(com.example.dto.ShowImage)
+2018-12-21 16:14:25.913  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/del]}" onto public java.lang.String com.example.controller.ImageController.delete(java.lang.Integer)
+2018-12-21 16:14:25.914  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/get]}" onto public java.lang.String com.example.controller.ImageController.image(java.lang.Integer)
+2018-12-21 16:14:25.914  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/index]}" onto public java.lang.String com.example.controller.ImageController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:14:25.915  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/list]}" onto public java.lang.String com.example.controller.ImageController.imageList(com.example.dto.ShowImage)
+2018-12-21 16:14:25.916  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.example.controller.MainController.Index(org.springframework.ui.ModelMap,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:14:25.916  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addCookie]}" onto public void com.example.controller.MainController.addCookie(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:14:25.917  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editCookie]}" onto public void com.example.controller.MainController.editCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:14:25.917  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/delCookie]}" onto public void com.example.controller.MainController.delCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-12-21 16:14:25.919  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/add]}" onto public java.lang.String com.example.controller.SubscribeController.add(com.example.dto.Subscribe)
+2018-12-21 16:14:25.919  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/update]}" onto public java.lang.String com.example.controller.SubscribeController.update(com.example.dto.Subscribe)
+2018-12-21 16:14:25.920  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/del]}" onto public java.lang.String com.example.controller.SubscribeController.delete(java.lang.Integer)
+2018-12-21 16:14:25.920  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/index]}" onto public java.lang.String com.example.controller.SubscribeController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:14:25.921  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/list]}" onto public java.lang.String com.example.controller.SubscribeController.subscribeList(com.example.dto.Subscribe)
+2018-12-21 16:14:25.921  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/get]}" onto public java.lang.String com.example.controller.SubscribeController.subscribe(java.lang.Integer)
+2018-12-21 16:14:25.923  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add]}" onto public java.lang.String com.example.controller.UserController.add(com.example.dto.User)
+2018-12-21 16:14:25.923  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/update]}" onto public java.lang.String com.example.controller.UserController.update(com.example.dto.User)
+2018-12-21 16:14:25.923  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/del]}" onto public java.lang.String com.example.controller.UserController.delete(java.lang.Integer)
+2018-12-21 16:14:25.923  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get]}" onto public java.lang.String com.example.controller.UserController.user(java.lang.Integer)
+2018-12-21 16:14:25.924  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/index]}" onto public java.lang.String com.example.controller.UserController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:14:25.924  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/list]}" onto public java.lang.String com.example.controller.UserController.userList(com.example.dto.User)
+2018-12-21 16:14:25.927  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-21 16:14:25.927  INFO 5040 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:14:25.979  INFO 5040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:14:25.979  INFO 5040 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:14:26.549  INFO 5040 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-12-21 16:14:26.870  INFO 5040 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-21 16:14:26.871  INFO 5040 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-21 16:14:26.880  INFO 5040 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-12-21 16:14:26.885  INFO 5040 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-21 16:14:26.888  INFO 5040 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-12-21 16:14:26.915  INFO 5040 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-21 16:14:26.966  INFO 5040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-21 16:14:26.972  INFO 5040 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 7.353 seconds (JVM running for 10.139)
+2018-12-21 16:14:35.164  INFO 5040 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-21 16:14:35.164  INFO 5040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-21 16:14:35.194  INFO 5040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2018-12-21 16:15:08.929 ERROR 5040 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.example.controller.MainController.Index(MainController.java:29) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_172]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_172]
+
+2018-12-21 16:16:26.468  INFO 816 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on QF-zhaoxueqian with PID 816 (E:\e438r\qweb\target\classes started by xueqian.zhao in E:\e438r\qweb)
+2018-12-21 16:16:26.489  INFO 816 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-21 16:16:26.561  INFO 816 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31c7528f: startup date [Fri Dec 21 16:16:26 CST 2018]; root of context hierarchy
+2018-12-21 16:16:28.470  INFO 816 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$e77286f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 16:16:29.293  INFO 816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-21 16:16:29.328  INFO 816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-21 16:16:29.329  INFO 816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-12-21 16:16:29.336  INFO 816 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2018-12-21 16:16:29.336  INFO 816 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-12-21 16:16:29.336  INFO 816 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-12-21 16:16:30.404  INFO 816 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2018-12-21 16:16:30.661  INFO 816 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-21 16:16:30.661  INFO 816 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4100 ms
+2018-12-21 16:16:30.783  INFO 816 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-21 16:16:30.793  INFO 816 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-21 16:16:30.794  INFO 816 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-21 16:16:30.795  INFO 816 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-21 16:16:30.796  INFO 816 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-21 16:16:31.932  INFO 816 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:16:32.236  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31c7528f: startup date [Fri Dec 21 16:16:26 CST 2018]; root of context hierarchy
+2018-12-21 16:16:32.318  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/add]}" onto public java.lang.String com.example.controller.ArticleController.add(com.example.dto.Article)
+2018-12-21 16:16:32.319  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/update]}" onto public java.lang.String com.example.controller.ArticleController.update(com.example.dto.Article)
+2018-12-21 16:16:32.320  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/del]}" onto public java.lang.String com.example.controller.ArticleController.delete(java.lang.Integer)
+2018-12-21 16:16:32.320  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/index]}" onto public java.lang.String com.example.controller.ArticleController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:16:32.320  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/list]}" onto public java.lang.String com.example.controller.ArticleController.articleList(com.example.dto.Article)
+2018-12-21 16:16:32.321  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/get]}" onto public java.lang.String com.example.controller.ArticleController.article(java.lang.Integer)
+2018-12-21 16:16:32.323  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/add]}" onto public java.lang.String com.example.controller.CategoryController.add(com.example.dto.Category)
+2018-12-21 16:16:32.323  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/update]}" onto public java.lang.String com.example.controller.CategoryController.update(com.example.dto.Category)
+2018-12-21 16:16:32.324  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/del]}" onto public java.lang.String com.example.controller.CategoryController.delete(java.lang.Integer)
+2018-12-21 16:16:32.324  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/index]}" onto public java.lang.String com.example.controller.CategoryController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:16:32.324  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/get]}" onto public java.lang.String com.example.controller.CategoryController.category(java.lang.Integer)
+2018-12-21 16:16:32.325  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/category/list]}" onto public java.lang.String com.example.controller.CategoryController.categoryList(com.example.dto.Category)
+2018-12-21 16:16:32.329  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/add]}" onto public java.lang.String com.example.controller.ImageController.add(com.example.dto.ShowImage)
+2018-12-21 16:16:32.330  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/update]}" onto public java.lang.String com.example.controller.ImageController.update(com.example.dto.ShowImage)
+2018-12-21 16:16:32.330  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/del]}" onto public java.lang.String com.example.controller.ImageController.delete(java.lang.Integer)
+2018-12-21 16:16:32.331  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/index]}" onto public java.lang.String com.example.controller.ImageController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:16:32.331  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/get]}" onto public java.lang.String com.example.controller.ImageController.image(java.lang.Integer)
+2018-12-21 16:16:32.332  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/image/list]}" onto public java.lang.String com.example.controller.ImageController.imageList(com.example.dto.ShowImage)
+2018-12-21 16:16:32.333  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.example.controller.MainController.Index(org.springframework.ui.ModelMap,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:16:32.333  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addCookie]}" onto public void com.example.controller.MainController.addCookie(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:16:32.334  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editCookie]}" onto public void com.example.controller.MainController.editCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-12-21 16:16:32.334  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/delCookie]}" onto public void com.example.controller.MainController.delCookie(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-12-21 16:16:32.336  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/add]}" onto public java.lang.String com.example.controller.SubscribeController.add(com.example.dto.Subscribe)
+2018-12-21 16:16:32.336  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/update]}" onto public java.lang.String com.example.controller.SubscribeController.update(com.example.dto.Subscribe)
+2018-12-21 16:16:32.337  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/del]}" onto public java.lang.String com.example.controller.SubscribeController.delete(java.lang.Integer)
+2018-12-21 16:16:32.337  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/index]}" onto public java.lang.String com.example.controller.SubscribeController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:16:32.337  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/list]}" onto public java.lang.String com.example.controller.SubscribeController.subscribeList(com.example.dto.Subscribe)
+2018-12-21 16:16:32.338  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/subscribe/get]}" onto public java.lang.String com.example.controller.SubscribeController.subscribe(java.lang.Integer)
+2018-12-21 16:16:32.339  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add]}" onto public java.lang.String com.example.controller.UserController.add(com.example.dto.User)
+2018-12-21 16:16:32.339  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/update]}" onto public java.lang.String com.example.controller.UserController.update(com.example.dto.User)
+2018-12-21 16:16:32.340  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/del]}" onto public java.lang.String com.example.controller.UserController.delete(java.lang.Integer)
+2018-12-21 16:16:32.340  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/index]}" onto public java.lang.String com.example.controller.UserController.Index(org.springframework.ui.ModelMap)
+2018-12-21 16:16:32.341  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/list]}" onto public java.lang.String com.example.controller.UserController.userList(com.example.dto.User)
+2018-12-21 16:16:32.341  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get]}" onto public java.lang.String com.example.controller.UserController.user(java.lang.Integer)
+2018-12-21 16:16:32.345  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-21 16:16:32.346  INFO 816 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-21 16:16:32.395  INFO 816 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:16:32.396  INFO 816 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-21 16:16:32.984  INFO 816 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-12-21 16:16:33.279  INFO 816 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-21 16:16:33.281  INFO 816 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-21 16:16:33.290  INFO 816 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-12-21 16:16:33.295  INFO 816 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-12-21 16:16:33.298  INFO 816 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-12-21 16:16:33.323  INFO 816 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-21 16:16:33.371  INFO 816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-21 16:16:33.377  INFO 816 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 7.702 seconds (JVM running for 9.137)
+2018-12-21 16:16:42.600  INFO 816 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-21 16:16:42.600  INFO 816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-21 16:16:42.627  INFO 816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
