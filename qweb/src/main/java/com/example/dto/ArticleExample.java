@@ -11,6 +11,16 @@ public class ArticleExample {
 
     protected List<Criteria> oredCriteria;
 
+    protected String limit;
+
+    public void setLimit(String limit){
+        this.limit = limit;
+    }
+
+    public String getLimit(){
+        return limit;
+    }
+
     public ArticleExample() {
         oredCriteria = new ArrayList<Criteria>();
     }

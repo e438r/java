@@ -6,8 +6,6 @@ import com.example.dto.ArticleExample;
 import java.util.List;
 
 public interface ArticleService {
-    List<Article> listByCategory(int cid);
-
     void add(Article article);
 
     void delete(Integer id);
@@ -16,5 +14,5 @@ public interface ArticleService {
 
     Article get(Integer id);
 
-    List<Article> listByExample(ArticleExample articleExample);
+    List<Article> list(ArticleExample articleExample);
 }

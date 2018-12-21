@@ -14,11 +14,6 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleMapper articleMapper;
 
     @Override
-    public List<Article> listByCategory(int cid) {
-        return null;
-    }
-
-    @Override
     public void add(Article article) {
 articleMapper.insert(article);
     }
@@ -39,7 +34,7 @@ articleMapper.updateByPrimaryKeySelective(article);
     }
 
     @Override
-    public List<Article> listByExample(ArticleExample articleExample) {
+    public List<Article> list(ArticleExample articleExample) {
         return articleMapper.selectByExample(articleExample);
     }
 }

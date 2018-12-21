@@ -10,6 +10,16 @@ public class ShowImageExample {
 
     protected List<Criteria> oredCriteria;
 
+    protected String limit;
+
+    public void setLimit(String limit){
+        this.limit = limit;
+    }
+
+    public String getLimit(){
+        return limit;
+    }
+
     public ShowImageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
