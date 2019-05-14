@@ -52,76 +52,74 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        loadDataTable(table);
-        /* 结束编辑，调用update方法 */
-        $("#DataGrid").on('cellendedit', function (event) {
-            var args = event.args;
-            $.ajax({
-                url: '/category/update',
-                data: {
-                    id: $('#id').val(),
-                    pid: args.row.pid,
-                    nodeName: args.row.nodeName,
-                    nodeDesc: args.row.nodeDesc
-                },
-                async: false,
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    layer.msg(data.data);
-                    loadDataTable();
-                },
-                error: function (data) {
-                    var message = JSON.parse(data.responseText).message;
-                    layer.msg(message, function () {
-                    });
-                }
-            });
-            $("#DataGrid").jqxGrid({editable: false});
-        });
-
-        $('#addform').click(function () {
-            if (!checkParams()) {
-                return;
+    loadDataTable();
+    /* 结束编辑，调用update方法 */
+    $("#DataGrid").on('cellendedit', function (event) {
+        var args = event.args;
+        $.ajax({
+            url: '/category/update',
+            data: {
+                id: $('#id').val(),
+                pid: args.row.pid,
+                nodeName: args.row.nodeName,
+                nodeDesc: args.row.nodeDesc
+            },
+            async: false,
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                layer.msg(data.data);
+                loadDataTable();
+            },
+            error: function (data) {
+                var message = JSON.parse(data.responseText).message;
+                layer.msg(message, function () {
+                });
             }
-            $.ajax({
-                url: '/category/add',
-                data: {
-                    pid: $('#pid').val(),
-                    nodeName: $('#nodeName').val(),
-                    nodeDesc: $('#nodeDesc').val()
-                },
-                async: false,
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    layer.msg(data.data);
-                },
-                error: function (data) {
-                    var message = JSON.parse(data.responseText).message;
-                    layer.msg(message, function () {
-                    });
-                }
-            });
         });
-
-        $('#showForm').click(function () {
-            $('#DataGrid').hide(500);
-            $('#addform').show(500);
-        });
-        $('#closePannel').click(function () {
-            $('#addform').hide(500);
-            $('#DataGrid').show(500);
+        $("#DataGrid").jqxGrid({editable: false});
+    });
+    $('#addform').click(function () {
+        if (!checkParams()) {
+            return;
+        }
+        $.ajax({
+            url: '/category/add',
+            data: {
+                pid: $('#pid').val(),
+                nodeName: $('#nodeName').val(),
+                nodeDesc: $('#nodeDesc').val()
+            },
+            async: false,
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                layer.msg(data.data);
+            },
+            error: function (data) {
+                var message = JSON.parse(data.responseText).message;
+                layer.msg(message, function () {
+                });
+            }
         });
     });
 
+    $('#showForm').click(function () {
+        $('#addform').removeClass('hide');
+        $('#DataGrid').hide(500);
+        $('#addform').show(500);
+    });
+    $('#closePannel').click(function () {
+        $('#addform').hide(500);
+        $('#DataGrid').show(500);
+    });
     function loadDataTable() {
+        console.log('loadTable');
         layer.load(1);
-        if (!checkParams()) {
-            layer.closeAll('loading');
-            return;
-        }
+        // if (!checkParams()) {
+        //     layer.closeAll('loading');
+        //     return;
+        // }
         var source = {
             datatype: "json",
             datafields: [

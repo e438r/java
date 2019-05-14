@@ -240,7 +240,7 @@
                     <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 预约管理</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o" onclick="loadPage('/category/index')"></i> 分类管理</a>
+                    <a href="javascript:void(0);" class="waves-effect waves-dark" onclick="loadPage('/category/index')"><i class="fa fa-bar-chart-o"></i> 分类管理</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 文章管理</a>
@@ -295,6 +295,9 @@
     <script type="text/javascript" src="/layui/layui.all.js"></script>
     <script type="text/javascript" src="/common/common.js"></script>
     <script>
+        $(document).ready(function () {
+
+        });
         function loadPage(url) {
             $.get(url, function (data) {
                 $('#page-wrapper').html(data);
