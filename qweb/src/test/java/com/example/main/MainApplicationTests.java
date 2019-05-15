@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoApplicationTests {
-    Logger logger = LoggerFactory.getLogger(DemoApplicationTests.class);
+public class MainApplicationTests {
+    Logger logger = LoggerFactory.getLogger(MainApplicationTests.class);
 
     @Test
     public void testConnection() throws Exception {

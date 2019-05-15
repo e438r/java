@@ -10,17 +10,16 @@
 </div>
 <div id="page-inner">
     <div class="card">
-        <div class="card-action">
-
-        </div>
         <div class="card-content">
+            <input type="text" id="selectName" name="selectName" class="input-small" placeholder="分类名"/>
+            <a class="waves-effect waves-light btn" id="search">搜索</a>
             <a class="waves-effect waves-light btn" id="showForm">添加</a>
         </div>
     </div>
     <div id="DataGrid"></div>
     <div class="card hide" id="addform">
         <div class="card-action">
-            Basic Form Elements
+            添加分类
         </div>
         <div class="card-content">
             <form class="col s12">
@@ -53,13 +52,16 @@
 </div>
 <script>
     loadDataTable();
+    $('#search').on('click',function () {
+        loadDataTable();
+    });
     /* 结束编辑，调用update方法 */
     $("#DataGrid").on('cellendedit', function (event) {
         var args = event.args;
         $.ajax({
             url: '/category/update',
             data: {
-                id: $('#id').val(),
+                id: args.row.id,
                 pid: args.row.pid,
                 nodeName: args.row.nodeName,
                 nodeDesc: args.row.nodeDesc
@@ -68,18 +70,16 @@
             type: "POST",
             dataType: "json",
             success: function (data) {
-                layer.msg(data.data);
+                layer.msg(data.errorMessage);
                 loadDataTable();
             },
             error: function (data) {
-                var message = JSON.parse(data.responseText).message;
-                layer.msg(message, function () {
-                });
+                layer.msg(data.errorMessage);
             }
         });
         $("#DataGrid").jqxGrid({editable: false});
     });
-    $('#addform').click(function () {
+    $('#submit').click(function () {
         if (!checkParams()) {
             return;
         }
@@ -94,12 +94,10 @@
             type: "POST",
             dataType: "json",
             success: function (data) {
-                layer.msg(data.data);
+                layer.msg(data.errorMessage);
             },
             error: function (data) {
-                var message = JSON.parse(data.responseText).message;
-                layer.msg(message, function () {
-                });
+
             }
         });
     });
@@ -129,7 +127,7 @@
                 {name: 'nodeDesc', type: 'string'}
             ],
             id: 'id',
-            url: '/category/list?id=' + $('#id').val() + '&pid=' + $('#pid').val() + '&nodeName=' + $('#nodeName').val() + '&nodeDesc=' + $('#nodeDesc').val()
+            url: '/category/list?nodeName=' + $('#selectName').val()
         };
         var dataAdapter = new $.jqx.dataAdapter(source, {
             downloadComplete: function (data, status, xhr) {
@@ -144,7 +142,7 @@
             beforeLoadComplete: function (records) { // 修饰数据
                 for (var v = 0; v < records.length; v++) {
                     /* 1. 所有行增加删除按钮 */
-                    records[v].function = '<a class="deleteButton" onclick="deleteData(\'' + records[v].characterIndex + '\', \'' + records[v].tppCode + '\', \'' + records[v].characterCode + '\')">删掉</a>'
+                    records[v].function = '<a class="deleteButton" onclick="deleteData(\'' + records[v].id + '\')">删掉</a>'
                         + '<a class="deleteButton" onclick="editData()">编辑</a>';
                 }
                 /*   }else{
@@ -156,7 +154,7 @@
         $("#DataGrid").jqxGrid({
             width: '100%',
             source: dataAdapter,
-            pageable: false,
+            pageable: true,
             autoheight: true,
             sortable: true,
             editable: false,
@@ -168,7 +166,7 @@
                 {text: 'pid', datafield: 'pid', editable: true, width: '8%'},
                 {text: 'nodeName', datafield: 'nodeName', editable: true, width: '8%'},
                 {text: 'nodeDesc', datafield: 'nodeDesc', editable: true, width: '35%'},
-                {text: 'function', datafield: 'option', editable: false, width: '8%'}
+                {text: 'function', datafield: 'function', editable: false, width: '8%'}
             ]
         });
         layer.closeAll('loading');
@@ -184,21 +182,19 @@
         }, function (index) {
             layer.close(index);
             $.ajax({
-                url: '/category/delete',
+                url: '/category/del',
                 data: {
-                    id: $('#id').val()
+                    id: id
                 },
                 async: false,
                 type: "POST",
                 dataType: "json",
                 success: function (data) {
-                    layer.msg(data.data);
+                    layer.msg(data.errorMessage);
                     loadDataTable();
                 },
                 error: function (data) {
-                    var message = JSON.parse(data.responseText).message;
-                    layer.msg(message, function () {
-                    });
+
                 }
             });
         });

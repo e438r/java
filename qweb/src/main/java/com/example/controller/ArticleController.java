@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.example.Vo.ResultParam;
 import com.example.dto.Article;
 import com.example.dto.ArticleExample;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -30,45 +30,45 @@ public class ArticleController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public String article(Integer id) {
+    public Article article(Integer id) {
         Article article = articleService.get(id);
-        return JSONUtils.toJSONString(article);
+        return article;
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public String articleList(Article article) {
+    public List<Article> articleList(HttpServletRequest servletRequest) {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
 
         List<Article> articleList = articleService.list(example);
-        return JSONUtils.toJSONString(articleList);
+        return articleList;
     }
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(Article article) {
+    public ResultParam add(Article article) {
         articleService.add(article);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/update")
     @ResponseBody
-    public String update(Article article) {
+    public ResultParam update(Article article) {
         articleService.update(article);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/del")
     @ResponseBody
-    public String delete(Integer id) {
+    public ResultParam delete(Integer id) {
         articleService.delete(id);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 }

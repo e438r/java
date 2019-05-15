@@ -8,7 +8,7 @@ spring:
     driver-class-name: org.gjt.mm.mysql.Driver
     url: jdbc:mysql://127.0.0.1:3306/qweb?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=round&autoReconnect=true
     username: root
-    password:
+    password: 123456
     dbcp2:
       min-idle: 5
       initial-size: 5

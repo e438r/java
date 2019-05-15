@@ -1,12 +1,10 @@
 package com.example.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.example.Vo.ResultParam;
 import com.example.config.democonfig;
 import com.example.dto.Subscribe;
 import com.example.dto.SubscribeExample;
 import com.example.service.SubscribeService;
-import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -35,53 +34,45 @@ public class SubscribeController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public String subscribe(Integer id) {
+    public Subscribe subscribe(Integer id) {
         Subscribe subscribe = subscribeService.get(id);
-        return JSONUtils.toJSONString(subscribe);
+        return subscribe;
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public String subscribeList(Subscribe subscribe) {
+    public List<Subscribe> subscribeList(HttpServletRequest servletRequest) {
         SubscribeExample example = new SubscribeExample();
         SubscribeExample.Criteria criteria = example.createCriteria();
-        if (null != subscribe.getCreateTime()) {
-            criteria.andCreateTimeGreaterThanOrEqualTo(subscribe.getCreateTime());
-        }
-        if(null != subscribe.getStartTime()){
-            criteria.andStartTimeGreaterThanOrEqualTo(subscribe.getStartTime());
-        }
-        if(null != subscribe.getEndTime()){
-            criteria.andEndTimeLessThanOrEqualTo(subscribe.getEndTime());
-        }
+
         List<Subscribe> subscribeList = subscribeService.list(example);
-        return JSONUtils.toJSONString(subscribeList);
+        return subscribeList;
     }
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(Subscribe subscribe) {
+    public ResultParam add(Subscribe subscribe) {
         subscribeService.add(subscribe);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/update")
     @ResponseBody
-    public String update(Subscribe subscribe) {
+    public ResultParam update(Subscribe subscribe) {
         subscribeService.update(subscribe);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/del")
     @ResponseBody
-    public String delete(Integer id) {
+    public ResultParam delete(Integer id) {
         subscribeService.delete(id);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 }

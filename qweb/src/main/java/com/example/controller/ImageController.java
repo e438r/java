@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.example.Vo.ResultParam;
 import com.example.dto.ShowImage;
 import com.example.dto.ShowImageExample;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -31,45 +31,45 @@ public class ImageController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public String image(Integer id) {
+    public ShowImage image(Integer id) {
         ShowImage image = imageService.get(id);
-        return JSONUtils.toJSONString(image);
+        return image;
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public String imageList(ShowImage image) {
+    public List<ShowImage> imageList(HttpServletRequest servletRequest) {
         ShowImageExample example = new ShowImageExample();
         ShowImageExample.Criteria criteria = example.createCriteria();
 
         List<ShowImage> imageList = imageService.list(example);
-        return JSONUtils.toJSONString(imageList);
+        return imageList;
     }
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(ShowImage image) {
+    public ResultParam add(ShowImage image) {
         imageService.add(image);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/update")
     @ResponseBody
-    public String update(ShowImage image) {
+    public ResultParam update(ShowImage image) {
         imageService.update(image);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/del")
     @ResponseBody
-    public String delete(Integer id) {
+    public ResultParam delete(Integer id) {
         imageService.delete(id);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 }

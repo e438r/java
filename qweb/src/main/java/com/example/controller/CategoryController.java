@@ -5,15 +5,19 @@ import com.example.Vo.ResultParam;
 import com.example.dto.Category;
 import com.example.dto.CategoryExample;
 import com.example.service.CategoryService;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,45 +34,48 @@ public class CategoryController {
 
     @RequestMapping("/get")
     @ResponseBody
-    public String category(Integer id) {
+    public Category category(Integer id) {
         Category category = categoryService.get(id);
-        return JSONUtils.toJSONString(category);
+        return category;
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public String categoryList(Category category) {
+    public List<Category> categoryList(HttpServletRequest servletRequest) {
+        String nodeName = servletRequest.getParameter("nodeName");
         CategoryExample example = new CategoryExample();
         CategoryExample.Criteria criteria = example.createCriteria();
-
+        if (StringUtils.isNotBlank(nodeName)) {
+            criteria.andNodeNameLike(nodeName);
+        }
         List<Category> categoryList = categoryService.list(example);
-        return JSONUtils.toJSONString(categoryList);
+        return categoryList;
     }
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(Category category) {
+    public ResultParam add(Category category) {
         categoryService.add(category);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/update")
     @ResponseBody
-    public String update(Category category) {
+    public ResultParam update(Category category) {
         categoryService.update(category);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 
     @RequestMapping("/del")
     @ResponseBody
-    public String delete(Integer id) {
+    public ResultParam delete(Integer id) {
         categoryService.delete(id);
         ResultParam resultParam = new ResultParam();
         resultParam.setErrorMessage("OK");
-        return JSONUtils.toJSONString(resultParam);
+        return resultParam;
     }
 }

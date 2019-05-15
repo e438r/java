@@ -2039,7 +2039,7 @@ button.jqx-button, input[type=button].jqx-button,  input[type=submit].jqx-button
     margin: 0 0 0 0;
     cursor: pointer;
 }
-/*applied to a calendar cell when the cell's date is a special date(holiday, vacation, birthay. See the SpecialDates demo).*/
+/*applied to a calendar cell when the cell's date is a special date(holiday, vacation, birthay. See the SpecialDates main).*/
 .jqx-calendar-cell-specialDate
 {
     color: #FF0000 !important;
