@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
+import com.example.Vo.CategoryVo;
 import com.example.Vo.ResultParam;
 import com.example.dto.Category;
 import com.example.dto.CategoryExample;
@@ -8,10 +8,10 @@ import com.example.service.CategoryService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,17 +39,35 @@ public class CategoryController {
         return category;
     }
 
+    /**
+     * http://localhost:8080/category/list?nodeName=&filterscount=0&groupscount=0&pagenum=0&pagesize=10&recordstartindex=0&recordendindex=10&_=1558145404596
+     *
+     * @param servletRequest
+     * @return
+     */
     @RequestMapping("/list")
     @ResponseBody
-    public List<Category> categoryList(HttpServletRequest servletRequest) {
+    public List<CategoryVo> categoryList(HttpServletRequest servletRequest) {
         String nodeName = servletRequest.getParameter("nodeName");
         CategoryExample example = new CategoryExample();
         CategoryExample.Criteria criteria = example.createCriteria();
         if (StringUtils.isNotBlank(nodeName)) {
             criteria.andNodeNameLike(nodeName);
         }
+        int pageSize = Integer.parseInt(servletRequest.getParameter("pagesize"));
+        int startIndex = Integer.parseInt(servletRequest.getParameter("recordstartindex"));
+        example.setLimit(startIndex + "," + pageSize);
         List<Category> categoryList = categoryService.list(example);
-        return categoryList;
+        int pageCount = categoryService.selectCount(example);
+        List<CategoryVo> categoryVoList = new ArrayList<>();
+        CategoryVo categoryVo;
+        for (Category category : categoryList) {
+            categoryVo = new CategoryVo();
+            BeanUtils.copyProperties(category, categoryVo);
+            categoryVoList.add(categoryVo);
+        }
+        categoryVoList.get(0).setCount(pageCount);
+        return categoryVoList;
     }
 
     @RequestMapping("/add")

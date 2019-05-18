@@ -22,6 +22,16 @@ public class CategoryExample {
         return orderByClause;
     }
 
+    protected String limit;
+
+    public void setLimit(String limit){
+        this.limit = limit;
+    }
+
+    public String getLimit(){
+        return limit;
+    }
+
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
     }

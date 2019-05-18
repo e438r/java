@@ -17,4 +17,6 @@ public interface CategoryService {
     List<Category> list(CategoryExample categoryExample);
 
     String getAllInTree();
+
+    int selectCount(CategoryExample example);
 }

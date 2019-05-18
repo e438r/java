@@ -233,17 +233,17 @@
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>
+                    <a href="javascript:void(0);" class="waves-effect waves-dark" onclick="loadPage('/user/index')"><i class="fa fa-dashboard"></i>
                         用户管理</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 预约管理</a>
+                    <a href="javascript:void(0);" class="waves-effect waves-dark"  onclick="loadPage('/subscribe/index')"><i class="fa fa-desktop"></i> 预约管理</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="waves-effect waves-dark" onclick="loadPage('/category/index')"><i class="fa fa-bar-chart-o"></i> 分类管理</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 文章管理</a>
+                    <a href="javascript:void(0);" class="waves-effect waves-dark" onclick="loadPage('/article/index')"><i class="fa fa-qrcode"></i> 文章管理</a>
                 </li>
 
             </ul>

@@ -42,4 +42,9 @@ public class CategoryServiceImpl implements CategoryService {
     public String getAllInTree() {
         return null;
     }
+
+    @Override
+    public int selectCount(CategoryExample example) {
+        return categoryMapper.selectCount(example);
+    }
 }

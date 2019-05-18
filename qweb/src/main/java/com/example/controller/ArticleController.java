@@ -4,6 +4,7 @@ import com.example.Vo.ResultParam;
 import com.example.dto.Article;
 import com.example.dto.ArticleExample;
 import com.example.service.ArticleService;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,10 @@ public class ArticleController {
     public List<Article> articleList(HttpServletRequest servletRequest) {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
-
+        String title = servletRequest.getParameter("title");
+        if (StringUtils.isNotBlank(title)) {
+            criteria.andTitleLike(title);
+        }
         List<Article> articleList = articleService.list(example);
         return articleList;
     }

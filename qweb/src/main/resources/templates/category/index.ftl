@@ -1,8 +1,4 @@
 <div class="header">
-    <h1 class="page-header">
-        分类管理
-        <small></small>
-    </h1>
     <ol class="breadcrumb">
         <li><a href="/">首页</a></li>
         <li class="active">分类</li>
@@ -11,9 +7,15 @@
 <div id="page-inner">
     <div class="card">
         <div class="card-content">
-            <input type="text" id="selectName" name="selectName" class="input-small" placeholder="分类名"/>
-            <a class="waves-effect waves-light btn" id="search">搜索</a>
-            <a class="waves-effect waves-light btn" id="showForm">添加</a>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" id="selectName" name="selectName" class="input-small" placeholder="分类名"/>
+                </div>
+                <div class="input-field col s6">
+                    <a class="waves-effect waves-light btn" id="search">搜索</a>
+                    <a class="waves-effect waves-light btn" id="showForm">添加</a>
+                </div>
+            </div>
         </div>
     </div>
     <div id="DataGrid"></div>
@@ -25,20 +27,20 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="text" id="pid" name="pid" class="input-small checkNotNull" placeholder="pid"/>
-                        <label for="pid">PID</label>
+                        <input type="text" id="pid" name="pid" class="input-small checkNotNull" placeholder="分类编号"/>
+                        <label for="pid">所属分类编号</label>
                     </div>
                     <div class="input-field col s6">
                         <input type="text" id="nodeName" name="nodeName" class="input-small checkNotNull"
-                               placeholder="nodeName"/>
-                        <label for="nodeName">nodeName</label>
+                               placeholder="分类名"/>
+                        <label for="nodeName">分类名</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <input type="text" id="nodeDesc" name="nodeDesc" class="input-small checkNotNull"
-                               placeholder="nodeDesc"/>
-                        <label for="pid">nodeDesc</label>
+                               placeholder="分类描述"/>
+                        <label for="pid">分类描述</label>
                     </div>
                     <div class="input-field col s6">
                         <a class="waves-effect waves-light btn" id="submit">提交</a>
@@ -127,20 +129,31 @@
                 {name: 'nodeDesc', type: 'string'}
             ],
             id: 'id',
-            url: '/category/list?nodeName=' + $('#selectName').val()
+            url: '/category/list?nodeName=' + $('#selectName').val(),
+            cache: false,
+            root: 'Rows',
+            beforeprocessing: function (data) {
+                //根据实际做相应的调整不一定是data[0].TotalRows;建议写个debugger;调试
+                if (data.length > 0){
+                    source.totalrecords = data[0].count;
+                } else {
+                    source.totalrecords = 0;
+                }
+            }
         };
         var dataAdapter = new $.jqx.dataAdapter(source, {
             downloadComplete: function (data, status, xhr) {
             },
             loadComplete: function (data) {
-                buildStyle(parent.MAIN_STYLE); // 加载完成后，自动再构造一遍页面效果
             },
             loadError: function (xhr, status, error) {
-                layer.msg(JSON.parse(xhr.responseText).message, function () {
-                });
+
             },
             beforeLoadComplete: function (records) { // 修饰数据
                 for (var v = 0; v < records.length; v++) {
+                    if (records[v] == null){
+                        break;
+                    }
                     /* 1. 所有行增加删除按钮 */
                     records[v].function = '<a class="deleteButton" onclick="deleteData(\'' + records[v].id + '\')">删掉</a>'
                         + '<a class="deleteButton" onclick="editData()">编辑</a>';
@@ -155,6 +168,10 @@
             width: '100%',
             source: dataAdapter,
             pageable: true,
+            virtualmode: true,
+            rendergridrows: function (params) {
+                return params.data;
+            },
             autoheight: true,
             sortable: true,
             editable: false,
@@ -162,11 +179,11 @@
             selectionMode: 'multiplecellsadvanced',
             rowsheight: 35,
             columns: [
-                {text: 'id', datafield: 'id', editable: false, width: '13%'},
-                {text: 'pid', datafield: 'pid', editable: true, width: '8%'},
-                {text: 'nodeName', datafield: 'nodeName', editable: true, width: '8%'},
-                {text: 'nodeDesc', datafield: 'nodeDesc', editable: true, width: '35%'},
-                {text: 'function', datafield: 'function', editable: false, width: '8%'}
+                {text: '分类编号', datafield: 'id', editable: false, width: '13%'},
+                {text: '所属分类编号', datafield: 'pid', editable: true, width: '8%'},
+                {text: '分类名', datafield: 'nodeName', editable: true, width: '8%'},
+                {text: '分类描述', datafield: 'nodeDesc', editable: true, width: '35%'},
+                {text: '编辑', datafield: 'function', editable: false, width: '8%'}
             ]
         });
         layer.closeAll('loading');
