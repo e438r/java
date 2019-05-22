@@ -155,4 +155,10 @@
       aid = #{aid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectCount" parameterType="com.example.dto.SubscribeExample" resultType="int">
+    select count(1) from subscribe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
 </mapper>

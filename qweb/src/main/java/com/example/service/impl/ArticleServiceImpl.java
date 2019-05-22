@@ -3,29 +3,31 @@ package com.example.service.impl;
 import com.example.dao.ArticleMapper;
 import com.example.dto.Article;
 import com.example.dto.ArticleExample;
+import com.example.dto.CategoryExample;
 import com.example.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
 
     @Override
-    public void add(Article article) {
-articleMapper.insert(article);
+    public Integer add(Article article) {
+        return articleMapper.insert(article);
     }
 
     @Override
     public void delete(Integer id) {
-articleMapper.deleteByPrimaryKey(id);
+        articleMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void update(Article article) {
-articleMapper.updateByPrimaryKeySelective(article);
+        articleMapper.updateByPrimaryKeySelective(article);
     }
 
     @Override
@@ -36,5 +38,10 @@ articleMapper.updateByPrimaryKeySelective(article);
     @Override
     public List<Article> list(ArticleExample articleExample) {
         return articleMapper.selectByExample(articleExample);
+    }
+
+    @Override
+    public int selectCount(ArticleExample example) {
+        return articleMapper.selectCount(example);
     }
 }

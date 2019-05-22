@@ -2,6 +2,7 @@ package com.example.dao;
 
 import com.example.dto.Article;
 import com.example.dto.ArticleExample;
+import com.example.dto.CategoryExample;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,4 +27,6 @@ public interface ArticleMapper {
     int updateByPrimaryKeyWithBLOBs(Article record);
 
     int updateByPrimaryKey(Article record);
+
+    int selectCount(ArticleExample example);
 }

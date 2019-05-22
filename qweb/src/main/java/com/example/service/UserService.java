@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.CategoryExample;
 import com.example.dto.User;
 import com.example.dto.UserExample;
 
@@ -15,4 +16,6 @@ public interface UserService {
     User get(Integer id);
 
     List<User> list(UserExample userExample);
+
+    int selectCount(UserExample example);
 }

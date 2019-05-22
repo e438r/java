@@ -1,12 +1,16 @@
 package com.example.controller;
 
+import com.example.Vo.ArticleVo;
+import com.example.Vo.CategoryVo;
 import com.example.Vo.ResultParam;
 import com.example.dto.Article;
 import com.example.dto.ArticleExample;
+import com.example.dto.Category;
 import com.example.service.ArticleService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,23 +43,35 @@ public class ArticleController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public List<Article> articleList(HttpServletRequest servletRequest) {
+    public List<ArticleVo> articleList(HttpServletRequest servletRequest) {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
         String title = servletRequest.getParameter("title");
         if (StringUtils.isNotBlank(title)) {
             criteria.andTitleLike(title);
         }
+        String pageSize = servletRequest.getParameter("pagesize");
+        String startIndex = servletRequest.getParameter("recordstartindex");
+        example.setLimit(startIndex + "," + pageSize);
         List<Article> articleList = articleService.list(example);
-        return articleList;
+        int pageCount = articleService.selectCount(example);
+        List<ArticleVo> articleVoList = new ArrayList<>();
+        ArticleVo articleVo;
+        for (Article article : articleList) {
+            articleVo = new ArticleVo();
+            BeanUtils.copyProperties(article, articleVo);
+            articleVoList.add(articleVo);
+        }
+        articleVoList.get(0).setCount(pageCount);
+        return articleVoList;
     }
 
     @RequestMapping("/add")
     @ResponseBody
     public ResultParam add(Article article) {
-        articleService.add(article);
+        Integer id = articleService.add(article);
         ResultParam resultParam = new ResultParam();
-        resultParam.setErrorMessage("OK");
+        resultParam.setErrorMessage(id.toString());
         return resultParam;
     }
 

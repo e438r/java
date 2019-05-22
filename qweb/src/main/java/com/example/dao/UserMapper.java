@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.example.dto.CategoryExample;
 import com.example.dto.User;
 import com.example.dto.UserExample;
 import org.springframework.stereotype.Repository;
@@ -21,4 +22,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    int selectCount(UserExample example);
 }

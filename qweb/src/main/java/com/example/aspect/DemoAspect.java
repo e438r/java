@@ -34,6 +34,7 @@ public class DemoAspect {
             qResponse = jp.proceed();
         } catch (Throwable t) {
             qResponse = null;
+            logger.info(t.getMessage());
         }
         return qResponse;
     }

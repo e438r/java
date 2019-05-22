@@ -1,6 +1,7 @@
 package com.example.service.impl;
 
 import com.example.dao.UserMapper;
+import com.example.dto.CategoryExample;
 import com.example.dto.User;
 import com.example.dto.UserExample;
 import com.example.service.UserService;
@@ -37,5 +38,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> list(UserExample userExample) {
         return userMapper.selectByExample(userExample);
+    }
+
+    @Override
+    public int selectCount(UserExample example) {
+        return userMapper.selectCount(example);
     }
 }

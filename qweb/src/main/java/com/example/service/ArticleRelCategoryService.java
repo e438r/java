@@ -6,7 +6,11 @@ import com.example.dto.ArticleRelCategoryExample;
 import java.util.List;
 
 public interface ArticleRelCategoryService {
+    ArticleRelCategory get(Integer id);
+
     void add(ArticleRelCategory articleRelCategory);
+
+    void update(ArticleRelCategory articleRelCategory);
 
     void delete(Integer id);
 

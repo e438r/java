@@ -1,7 +1,7 @@
 <div class="header">
     <ol class="breadcrumb">
         <li><a href="/">首页</a></li>
-        <li class="active">文章</li>
+        <li class="active">用户</li>
     </ol>
 </div>
 <div id="page-inner">
@@ -9,9 +9,14 @@
         <div class="card-content">
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" id="selectName" name="selectName" class="input-small" placeholder="标题"/>
+                    <input type="text" id="selectName" name="selectName" class="input-small" placeholder="用户名"/>
                 </div>
                 <div class="input-field col s6">
+                    <input type="text" id="selectPhone" name="selectPhone" class="input-small" placeholder="手机号"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
                     <a class="waves-effect waves-light btn" id="search">搜索</a>
                     <a class="waves-effect waves-light btn" id="showForm">添加</a>
                 </div>
@@ -21,44 +26,44 @@
     <div id="DataGrid"></div>
     <div class="card hide" id="addform">
         <div class="card-action">
-            编辑文章
+            编辑用户
         </div>
         <div class="card-content">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
                         <input type="hidden" id="id">
-                        <input type="text" id="title" name="title" class="input-small checkNotNull" placeholder="标题"/>
-                        <label for="title">标题</label>
+                        <input type="text" id="userName" name="userName" class="input-small checkNotNull" placeholder="登录名"/>
+                        <label for="userName">登录名</label>
                     </div>
                     <div class="input-field col s6">
-                        <input type="text" id="tag" name="tag" class="input-small checkNotNull"
-                               placeholder="tag"/>
-                        <label for="tag">文章标签</label>
+                        <input type="text" id="age" name="age" class="input-small"
+                               placeholder="年龄"/>
+                        <label for="age">年龄</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="text" id="category" name="category" class="input-small checkNotNull"
-                               placeholder="分类编号"/>
-                        <label for="category">分类编号</label>
+                        <input type="text" id="phone" name="phone" class="input-small checkNotNull"
+                               placeholder="手机号"/>
+                        <label for="phone">手机号</label>
                     </div>
                     <div class="input-field col s6">
-                        <input type="text" id="order" name="order" class="input-small checkNotNull"
-                               placeholder="排序"/>
-                        <label for="order">排序</label>
+                        <input type="text" id="email" name="email" class="input-small"
+                               placeholder="邮箱"/>
+                        <label for="email">邮箱</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="image" name="image" class="input-small" />
-                        <label for="image">配图地址</label>
+                    <div class="input-field col s6">
+                        <input type="text" id="qq" name="qq" class="input-small"
+                               placeholder="QQ"/>
+                        <label for="qq">QQ</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                       <textarea id="content" name="content" class="input-medium" style="height:500px;"></textarea>
-                        <label for="content">正文</label>
+                    <div class="input-field col s6">
+                        <input type="text" id="trueName" name="trueName" class="input-small checkNotNull"
+                               placeholder="真实姓名"/>
+                        <label for="trueName">真实姓名</label>
                     </div>
                 </div>
                 <div class="row">
@@ -82,67 +87,26 @@
         if (!checkParams()) {
             return;
         }
-        var url = "/article/add";
+        var url = "/user/add";
         if($('#id').val()!=""){
-            url = "/article/update";
+            url = "/user/update";
         }
         $.ajax({
             url: url,
             data: {
                 id: $('#id').val(),
-                title: $('#title').val(),
-                content: $('#content').val(),
-                auther: $('#auther').val(),
-                tag:$('#tag').val(),
-                order:$('#order').val()
+                userName: $('#userName').val(),
+                age: $('#age').val(),
+                phone: $('#phone').val(),
+                email:$('#email').val(),
+                qq:$('#qq').val(),
+                trueName:$('#trueName').val()
             },
             async: false,
             type: "POST",
             dataType: "json",
             success: function (data) {
-                var imgurl = "/image/add";
-                var aid = $('#id').val();
-                if(aid!=""){
-                    imgurl = "/image/update";
-                }else{
-                    aid = data.errorMessage;
-                }
-                $.ajax({
-                    url: imgurl,
-                    data: {
-                        aid: aid,
-                        imgurl: $('#image').val(),
-                    },
-                    async: false,
-                    type: "POST",
-                    dataType: "json",
-                    success: function (data) {
-                        layer.msg(data.errorMessage);
-                    },
-                    error: function (data) {
-
-                    }
-                });
-                var categoryurl = "/rel/add";
-                if(aid!=""){
-                    categoryurl = "/rel/update";
-                }
-                $.ajax({
-                    url: categoryurl,
-                    data: {
-                        aid: aid,
-                        cid: $('#category').val(),
-                    },
-                    async: false,
-                    type: "POST",
-                    dataType: "json",
-                    success: function (data) {
-                        layer.msg(data.errorMessage);
-                    },
-                    error: function (data) {
-
-                    }
-                });
+                layer.msg(data.errorMessage);
             },
             error: function (data) {
 
@@ -171,15 +135,15 @@
             datatype: "json",
             datafields: [
                 {name: 'id', type: 'int'},
-                {name: 'title', type: 'string'},
-                {name: 'content', type: 'string'},
-                {name: 'auther', type: 'string'},
-                {name: 'tag', type: 'string'},
-                {name: 'createTime', type: 'string'},
-                {name: 'order', type: 'string'}
+                {name: 'userName', type: 'string'},
+                {name: 'age', type: 'int'},
+                {name: 'phone', type: 'string'},
+                {name: 'email', type: 'string'},
+                {name: 'qq', type: 'string'},
+                {name: 'trueName', type: 'string'}
             ],
             id: 'id',
-            url: '/article/list?title=' + $('#selectName').val(),
+            url: '/user/list?name=' + $('#selectName').val()+'&phone='+$('#selectPhone').val(),
             cache: false,
             root: 'Rows',
             beforeprocessing: function (data) {
@@ -228,10 +192,12 @@
             selectionMode: 'multiplecellsadvanced',
             rowsheight: 35,
             columns: [
-                {text: '标题', datafield: 'title', editable: false, width: '8%'},
-                {text: '作者', datafield: 'auther', editable: false, width: '8%'},
-                {text: '标签', datafield: 'tag', editable: false, width: '35%'},
-                {text: '创建时间', datafield: 'createTime', editable: false, width: '35%'},
+                {text: '登录名', datafield: 'userName', editable: false, width: '38%'},
+                {text: '年龄', datafield: 'age', editable: false, width: '8%'},
+                {text: '手机', datafield: 'phone', editable: false, width: '35%'},
+                {text: '邮箱', datafield: 'email', editable: false, width: '35%'},
+                {text: 'QQ', datafield: 'qq', editable: false, width: '35%'},
+                {text: '真实姓名', datafield: 'trueName', editable: false, width: '35%'},
                 {text: '编辑', datafield: 'function', editable: false, width: '8%'}
             ]
         });
@@ -248,7 +214,7 @@
         }, function (index) {
             layer.close(index);
             $.ajax({
-                url: '/article/del',
+                url: '/user/del',
                 data: {
                     id: id
                 },
@@ -268,7 +234,7 @@
 
     function editData(id) {
         $.ajax({
-            url: '/article/get',
+            url: '/user/get',
             data: {
                 id: id
             },
@@ -277,27 +243,13 @@
             dataType: "json",
             success: function (data) {
                 $('#id').val(data.id);
-                $('#title').val(data.title);
-                $('#content').val(data.content);
-                $('#tag').val(data.tag);
-                $('#auther').val(data.auther);
-                $('#order').val(data.order);
+                $('#userName').val(data.userName);
+                $('#age').val(data.age);
+                $('#phone').val(data.phone);
+                $('#email').val(data.email);
+                $('#qq').val(data.qq);
+                $('#trueName').val(data.trueName);
                 $('#showForm').click();
-            },
-            error: function (data) {
-                layer.msg(data);
-            }
-        });
-        $.ajax({
-            url: '/image/get',
-            data: {
-                id: id
-            },
-            async: false,
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                $('#image').val(data.imgurl);
             },
             error: function (data) {
                 layer.msg(data);

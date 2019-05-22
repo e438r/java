@@ -54,8 +54,8 @@ public class CategoryController {
         if (StringUtils.isNotBlank(nodeName)) {
             criteria.andNodeNameLike(nodeName);
         }
-        int pageSize = Integer.parseInt(servletRequest.getParameter("pagesize"));
-        int startIndex = Integer.parseInt(servletRequest.getParameter("recordstartindex"));
+        String pageSize = servletRequest.getParameter("pagesize");
+        String startIndex = servletRequest.getParameter("recordstartindex");
         example.setLimit(startIndex + "," + pageSize);
         List<Category> categoryList = categoryService.list(example);
         int pageCount = categoryService.selectCount(example);

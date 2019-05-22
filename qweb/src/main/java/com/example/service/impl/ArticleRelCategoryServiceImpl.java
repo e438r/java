@@ -16,8 +16,18 @@ public class ArticleRelCategoryServiceImpl implements ArticleRelCategoryService 
     private ArticleRelCategoryMapper articleRelCategoryMapper;
 
     @Override
+    public ArticleRelCategory get(Integer id) {
+        return articleRelCategoryMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public void add(ArticleRelCategory articleRelCategory) {
         articleRelCategoryMapper.insert(articleRelCategory);
+    }
+
+    @Override
+    public void update(ArticleRelCategory articleRelCategory) {
+        articleRelCategoryMapper.updateByPrimaryKeySelective(articleRelCategory);
     }
 
     @Override
