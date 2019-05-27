@@ -44,9 +44,9 @@
                         <label for="category">分类编号</label>
                     </div>
                     <div class="input-field col s6">
-                        <input type="text" id="order" name="order" class="input-small checkNotNull"
+                        <input type="text" id="sortBy" name="sortBy" class="input-small checkNotNull"
                                placeholder="排序"/>
-                        <label for="order">排序</label>
+                        <label for="sortBy">排序</label>
                     </div>
                 </div>
                 <div class="row">
@@ -94,7 +94,7 @@
                 content: $('#content').val(),
                 auther: $('#auther').val(),
                 tag:$('#tag').val(),
-                order:$('#order').val()
+                sortBy:$('#sortBy').val()
             },
             async: false,
             type: "POST",
@@ -102,15 +102,17 @@
             success: function (data) {
                 var imgurl = "/image/add";
                 var aid = $('#id').val();
+                var newId;
                 if(aid!=""){
                     imgurl = "/image/update";
+                    newId = aid;
                 }else{
-                    aid = data.errorMessage;
+                    newId = data.errorMessage;
                 }
                 $.ajax({
                     url: imgurl,
                     data: {
-                        aid: aid,
+                        aid: newId,
                         imgurl: $('#image').val(),
                     },
                     async: false,
@@ -130,14 +132,13 @@
                 $.ajax({
                     url: categoryurl,
                     data: {
-                        aid: aid,
+                        aid: newId,
                         cid: $('#category').val(),
                     },
                     async: false,
                     type: "POST",
                     dataType: "json",
                     success: function (data) {
-                        layer.msg(data.errorMessage);
                     },
                     error: function (data) {
 
@@ -176,7 +177,7 @@
                 {name: 'auther', type: 'string'},
                 {name: 'tag', type: 'string'},
                 {name: 'createTime', type: 'string'},
-                {name: 'order', type: 'string'}
+                {name: 'sortBy', type: 'string'}
             ],
             id: 'id',
             url: '/article/list?title=' + $('#selectName').val(),
@@ -281,7 +282,7 @@
                 $('#content').val(data.content);
                 $('#tag').val(data.tag);
                 $('#auther').val(data.auther);
-                $('#order').val(data.order);
+                $('#sortBy').val(data.sortBy);
                 $('#showForm').click();
             },
             error: function (data) {

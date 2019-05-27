@@ -52,7 +52,7 @@
                 {name: 'auther', type: 'string'},
                 {name: 'tag', type: 'string'},
                 {name: 'createTime', type: 'string'},
-                {name: 'order', type: 'string'}
+                {name: 'sortBy', type: 'string'}
             ],
             id: 'id',
             url: '/article/list?title=' + $('#selectName').val()

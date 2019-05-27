@@ -15,4 +15,7 @@ public interface SubscribeService {
     Subscribe get(Integer id);
 
     List<Subscribe> list(SubscribeExample subscribeExample);
+
+    int selectCount(SubscribeExample example);
+
 }

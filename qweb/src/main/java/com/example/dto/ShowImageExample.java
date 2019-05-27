@@ -375,32 +375,32 @@ public class ShowImageExample {
         }
 
         public Criteria andOrderIsNull() {
-            addCriterion("order is null");
+            addCriterion("sortBy is null");
             return (Criteria) this;
         }
 
         public Criteria andOrderIsNotNull() {
-            addCriterion("order is not null");
+            addCriterion("sortBy is not null");
             return (Criteria) this;
         }
 
         public Criteria andOrderEqualTo(Integer value) {
-            addCriterion("order =", value, "order");
+            addCriterion("sortBy =", value, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderNotEqualTo(Integer value) {
-            addCriterion("order <>", value, "order");
+            addCriterion("sortBy <>", value, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderGreaterThan(Integer value) {
-            addCriterion("order >", value, "order");
+            addCriterion("sortBy >", value, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderGreaterThanOrEqualTo(Integer value) {
-            addCriterion("order >=", value, "order");
+            addCriterion("sortBy >=", value, "sortBy");
             return (Criteria) this;
         }
 
@@ -410,27 +410,27 @@ public class ShowImageExample {
         }
 
         public Criteria andOrderLessThanOrEqualTo(Integer value) {
-            addCriterion("order <=", value, "order");
+            addCriterion("sortBy <=", value, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderIn(List<Integer> values) {
-            addCriterion("order in", values, "order");
+            addCriterion("sortBy in", values, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderNotIn(List<Integer> values) {
-            addCriterion("order not in", values, "order");
+            addCriterion("sortBy not in", values, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderBetween(Integer value1, Integer value2) {
-            addCriterion("order between", value1, value2, "order");
+            addCriterion("sortBy between", value1, value2, "sortBy");
             return (Criteria) this;
         }
 
         public Criteria andOrderNotBetween(Integer value1, Integer value2) {
-            addCriterion("order not between", value1, value2, "order");
+            addCriterion("sortBy not between", value1, value2, "sortBy");
             return (Criteria) this;
         }
     }

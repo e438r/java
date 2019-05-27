@@ -7,7 +7,7 @@
     <result column="auther" jdbcType="VARCHAR" property="auther" />
     <result column="tag" jdbcType="VARCHAR" property="tag" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="order" jdbcType="INTEGER" property="order" />
+    <result column="sortBy" jdbcType="INTEGER" property="sortBy" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.example.dto.Article">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -42,7 +42,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, title, auther, tag, createTime, order
+    id, title, auther, tag, createTime, sortBy
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -61,7 +61,7 @@
       <include refid="Example_Where_Clause" />
     </if>
     <if test="orderByClause != null">
-      order by ${orderByClause}
+      sortBy by ${orderByClause}
     </if>
   </select>
   <select id="selectByExample" parameterType="com.example.dto.ArticleExample" resultMap="BaseResultMap">
@@ -76,7 +76,7 @@
       <include refid="Example_Where_Clause" />
     </if>
     <if test="orderByClause != null">
-      order by ${orderByClause}
+      sortBy by ${orderByClause}
     </if>
     <if test="limit != null">
       limit ${limit}
@@ -94,13 +94,16 @@
     delete from article
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.dto.Article" useGeneratedKeys="true">
+  <insert id="insert" parameterType="com.example.dto.Article">
+    <selectKey resultType="int" order="AFTER" keyProperty="id">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into article (title, auther, tag, 
-      createTime, order, content
+      createTime, sortBy, content
       )
     values (#{title,jdbcType=VARCHAR}, #{auther,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{order,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
-      )
+      #{createTime,jdbcType=TIMESTAMP}, #{sortBy,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      );
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.dto.Article" useGeneratedKeys="true">
     insert into article
@@ -117,8 +120,8 @@
       <if test="createTime != null">
         createTime,
       </if>
-      <if test="order != null">
-        order,
+      <if test="sortBy != null">
+        sortBy,
       </if>
       <if test="content != null">
         content,
@@ -137,8 +140,8 @@
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="order != null">
-        #{order,jdbcType=INTEGER},
+      <if test="sortBy != null">
+        #{sortBy,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -160,8 +163,8 @@
       <if test="createTime != null">
         createTime = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="order != null">
-        order = #{order,jdbcType=INTEGER},
+      <if test="sortBy != null">
+        sortBy = #{sortBy,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
@@ -175,7 +178,7 @@
       auther = #{auther,jdbcType=VARCHAR},
       tag = #{tag,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP},
-      order = #{order,jdbcType=INTEGER},
+      sortBy = #{sortBy,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -185,7 +188,7 @@
       auther = #{auther,jdbcType=VARCHAR},
       tag = #{tag,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP},
-      order = #{order,jdbcType=INTEGER}
+      sortBy = #{sortBy,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectCount" parameterType="com.example.dto.ArticleExample" resultType="int">

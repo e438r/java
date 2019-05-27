@@ -21,4 +21,7 @@ public interface SubscribeMapper {
     int updateByPrimaryKeySelective(Subscribe record);
 
     int updateByPrimaryKey(Subscribe record);
+
+    int selectCount(Subscribe example);
+
 }

@@ -37,4 +37,9 @@ public class SubscribeServiceImpl implements SubscribeService {
     public List<Subscribe> list(SubscribeExample subscribeExample) {
         return subscribeMapper.selectByExample(subscribeExample);
     }
+
+    @Override
+    public int selectCount(SubscribeExample example) {
+        return 0;
+    }
 }

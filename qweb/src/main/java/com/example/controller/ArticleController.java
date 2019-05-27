@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -53,9 +54,12 @@ public class ArticleController {
         String pageSize = servletRequest.getParameter("pagesize");
         String startIndex = servletRequest.getParameter("recordstartindex");
         example.setLimit(startIndex + "," + pageSize);
-        List<Article> articleList = articleService.list(example);
         int pageCount = articleService.selectCount(example);
         List<ArticleVo> articleVoList = new ArrayList<>();
+        if (pageCount == 0) {
+            return articleVoList;
+        }
+        List<Article> articleList = articleService.list(example);
         ArticleVo articleVo;
         for (Article article : articleList) {
             articleVo = new ArticleVo();
@@ -69,9 +73,10 @@ public class ArticleController {
     @RequestMapping("/add")
     @ResponseBody
     public ResultParam add(Article article) {
+        article.setCreateTime(new Date());
         Integer id = articleService.add(article);
         ResultParam resultParam = new ResultParam();
-        resultParam.setErrorMessage(id.toString());
+        resultParam.setErrorMessage(article.getId().toString());
         return resultParam;
     }
 

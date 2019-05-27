@@ -6,7 +6,7 @@
     <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
     <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="order" jdbcType="INTEGER" property="order" />
+    <result column="sortBy" jdbcType="INTEGER" property="sortBy" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -38,7 +38,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, imgurl, aid, type, order
+    id, imgurl, aid, type, sortBy
   </sql>
   <select id="selectByExample" parameterType="com.example.dto.ShowImageExample" resultMap="BaseResultMap">
     select
@@ -70,9 +70,9 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.dto.ShowImage" useGeneratedKeys="true">
     insert into showImage (imgurl, aid, type, 
-      order)
+      sortBy)
     values (#{imgurl,jdbcType=VARCHAR}, #{aid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
-      #{order,jdbcType=INTEGER})
+      #{sortBy,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.dto.ShowImage" useGeneratedKeys="true">
     insert into showImage
@@ -86,8 +86,8 @@
       <if test="type != null">
         type,
       </if>
-      <if test="order != null">
-        order,
+      <if test="sortBy != null">
+        sortBy,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -100,8 +100,8 @@
       <if test="type != null">
         #{type,jdbcType=VARCHAR},
       </if>
-      <if test="order != null">
-        #{order,jdbcType=INTEGER},
+      <if test="sortBy != null">
+        #{sortBy,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -117,8 +117,8 @@
       <if test="type != null">
         type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="order != null">
-        order = #{order,jdbcType=INTEGER},
+      <if test="sortBy != null">
+        sortBy = #{sortBy,jdbcType=INTEGER},
       </if>
     </set>
     where aid = #{aid,jdbcType=INTEGER}
@@ -128,7 +128,7 @@
     set imgurl = #{imgurl,jdbcType=VARCHAR},
       aid = #{aid,jdbcType=INTEGER},
       type = #{type,jdbcType=VARCHAR},
-      order = #{order,jdbcType=INTEGER}
+      sortBy = #{sortBy,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -9,7 +9,7 @@ public class ShowImage {
 
     private String type;
 
-    private Integer order;
+    private Integer sortBy;
 
     public Integer getId() {
         return id;
@@ -44,10 +44,10 @@ public class ShowImage {
     }
 
     public Integer getOrder() {
-        return order;
+        return sortBy;
     }
 
     public void setOrder(Integer order) {
-        this.order = order;
+        this.sortBy = order;
     }
 }

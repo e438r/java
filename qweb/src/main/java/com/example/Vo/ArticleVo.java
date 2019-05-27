@@ -13,7 +13,7 @@ public class ArticleVo {
 
     private Date createTime;
 
-    private Integer order;
+    private Integer sortBy;
 
     private String content;
 
@@ -59,12 +59,12 @@ public class ArticleVo {
         this.createTime = createTime;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getSortBy() {
+        return sortBy;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setSortBy(Integer sortBy) {
+        this.sortBy = sortBy;
     }
 
     public String getContent() {

@@ -61,9 +61,12 @@ public class UserController {
         String pageSize = servletRequest.getParameter("pagesize");
         String startIndex = servletRequest.getParameter("recordstartindex");
         example.setLimit(startIndex + "," + pageSize);
-        List<User> userList = userService.list(example);
         int pageCount = userService.selectCount(example);
         List<UserVo> userVoList = new ArrayList<>();
+        if (pageCount == 0) {
+            return userVoList;
+        }
+        List<User> userList = userService.list(example);
         UserVo userVo;
         for (User user : userList) {
             userVo = new UserVo();

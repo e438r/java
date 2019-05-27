@@ -26,7 +26,7 @@ CREATE TABLE `article` (
   `auther` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tag` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
-  `order` int(11) DEFAULT NULL,
+  `sortBy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_title` (`title`),
   KEY `index_tag` (`tag`),
@@ -66,7 +66,7 @@ CREATE TABLE `showImage` (
   `imgurl` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aid` int(11) DEFAULT NULL,
   `type` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `order` int(11) DEFAULT NULL,
+  `sortBy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

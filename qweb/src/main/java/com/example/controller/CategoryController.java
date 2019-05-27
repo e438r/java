@@ -57,9 +57,12 @@ public class CategoryController {
         String pageSize = servletRequest.getParameter("pagesize");
         String startIndex = servletRequest.getParameter("recordstartindex");
         example.setLimit(startIndex + "," + pageSize);
-        List<Category> categoryList = categoryService.list(example);
         int pageCount = categoryService.selectCount(example);
         List<CategoryVo> categoryVoList = new ArrayList<>();
+        if (pageCount == 0) {
+            return categoryVoList;
+        }
+        List<Category> categoryList = categoryService.list(example);
         CategoryVo categoryVo;
         for (Category category : categoryList) {
             categoryVo = new CategoryVo();
